@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.shiro.mapper.UserMapper">
+
+    <select id="selectAll" resultType="User">
+        select * from sys_users
+    </select>
+
+    <insert id="createUser">
+        insert into sys_users(username, password, salt) values (#{username}, #{password}, #{salt})
+    </insert>
+
+    <select id="selectByUsername" resultType="User">
+        select id, username, password, salt, locked from sys_users where username = #{username}
+    </select>
+
+</mapper>
